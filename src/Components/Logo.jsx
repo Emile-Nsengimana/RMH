@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import appLogo from '.././Ui/img/logo.png';
-import menu from '.././Ui/img/menu.png';
+import appLogo from '../Ui/img/logo.png';
 
 class Logo extends Component{
 

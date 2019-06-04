@@ -1,6 +1,6 @@
 {
-  "short_name": "ap",
-  "name": "Asset packets",
+  "short_name": "rmh",
+  "name": "rmh asset manager",
   "icons": [
     {
       "src": "favicon.ico",

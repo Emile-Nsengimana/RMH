@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Admin from './Components/Admin';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../src/Ui/css/main.css";
-import Signin from './Signin';
-import Admin from './Admin';
+import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import * as serviceWorker from './serviceWorker';
+
+ReactDOM.render(<Admin />, document.getElementById('root'));
 
 serviceWorker.unregister();

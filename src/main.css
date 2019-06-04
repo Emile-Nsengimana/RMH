@@ -1,0 +1,119 @@
+body{
+    overflow-x: hidden;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+h5{
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* side bar */
+.side-bar{
+    background: whitesmoke;
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);  
+    padding: 0;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+}
+.side-bar ul li{
+    list-style: none;
+    width: 200px;
+    height: inherit;
+    margin: 10px;
+    text-align: left;
+    padding: 3px;
+    padding-left: 20px;
+    background: rgba(0, 0, 0, 0.03);
+    font-size: 13pt;
+    font-weight: 700;
+    border-radius: 8px;
+}
+.side-bar ul li ul li{
+    display: none;
+}
+
+.side-bar ul li:hover{
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+.lb-colored-title, .lb-colored-title-make, .lb-colored-title-user{
+    color: rgb(0, 201, 252);
+    font-weight: 700;
+    padding-left: 10px;
+    font-size: 14pt;
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+.lb-colored-title-make{
+    color: rgb(143, 252, 0); 
+}
+.lb-colored-title-user{
+    color: rgb(104, 17, 126); 
+}
+
+/* search area */
+.nav-default{
+    margin-right: 30px;
+    padding: 0;
+}
+.txt-lg{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    /* margin-left: -80px; */
+    border-radius: 8px;
+    outline: none;
+    width: 50%;
+    outline: none !important;  
+}
+.lb-default{
+    display: block;
+    width: 100%;
+    color: grey;
+}
+
+/* main content */
+.admin-panel{
+    margin-left: -70px;
+}
+
+/* workspace */
+.admin-panel{
+    display: block;
+}
+#dashboard{
+    display: block;
+}
+#assets{
+    display: none;
+}
+#users{
+    display: none;
+}
+
+/* button */
+.btn-normal{
+    border: 1px solid;
+    width: 48%;
+    margin-left: 5px;
+    background: rgb(253, 253, 253);
+    color: black;
+    font-size: 14pt;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 3px;
+    outline: none !important;
+}
+.btn-normal:hover{
+    background: rgb(17, 75, 17);
+    color: white;
+}
+
+.iriho{
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: white;
+}

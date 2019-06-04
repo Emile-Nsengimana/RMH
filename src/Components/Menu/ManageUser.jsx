@@ -6,7 +6,7 @@ class UserManager extends Component {
             <div>
               <label className="lb-colored-title-make" htmlFor="own">Manage user</label>
               <ul>
-                <li><a href="#"></a>Users</li>
+                <li id="btn-users" onClick={this.props.onUsers}>Users</li>
               </ul>
             </div>
          );
