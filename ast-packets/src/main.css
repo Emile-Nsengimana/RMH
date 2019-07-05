@@ -1,0 +1,455 @@
+body{
+    overflow-x: hidden;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+h5{
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* side bar */
+.side-bar{
+    background: whitesmoke;
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);  
+    padding: 0;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+}
+.side-bar ul li{
+    list-style: none;
+    width: 200px;
+    height: inherit;
+    margin: 10px;
+    text-align: left;
+    padding: 3px;
+    padding-left: 20px;
+    background: rgba(0, 0, 0, 0.03);
+    font-size: 13pt;
+    font-weight: 700;
+    border-radius: 8px;
+}
+.side-bar ul li ul li{
+    display: none;
+}
+
+.side-bar ul li:hover{
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+.lb-colored-title, .lb-colored-title-make, .lb-colored-title-user{
+    color: rgb(0, 201, 252);
+    font-weight: 700;
+    padding-left: 10px;
+    font-size: 14pt;
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+.lb-colored-title-make{
+    color: rgb(143, 252, 0); 
+}
+.lb-colored-title-user{
+    color: rgb(104, 17, 126); 
+}
+
+/* search area */
+.nav-default{
+    margin-right: 30px;
+    padding: 0;
+}
+.txt-lg{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    /* margin-left: -80px; */
+    border-radius: 8px;
+    outline: none;
+    width: 50%;
+    outline: none !important;  
+}
+.lb-default{
+    display: block;
+    width: 100%;
+    color: grey;
+}
+
+/* main content */
+.admin-panel{
+    margin-left: -70px;
+}
+.user-panel{
+    margin-left: 270px;
+}
+
+/* workspace */
+.admin-panel, #dashboard{
+    display: block;
+}
+/* 
+#asset-request{
+    margin-left: 15%;
+    width: 55%;
+    padding: 20px;
+    position: absolute;
+    top: 30px;
+    z-index: 1;
+    display: none;
+    background: rgb(243, 243, 239);
+} */
+
+.asset-title{
+    text-align: center;
+    color: rgb(15, 50, 90);
+    font-weight: 700;
+    background: whitesmoke;
+    padding: 7px;
+}
+#add-asset, #asset-request{
+    width: 55%;
+    height: 98vh;
+    overflow: scroll;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    border-radius: 12px;
+    margin-left: 20%;  
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 40px;
+    background: whitesmoke;
+    display: none;
+}
+
+#add-asset .btn-normal{
+    width: 60%;
+    /* background: rgb(14, 94, 67);
+    font-weight: 700; */
+    margin-left: 10%;
+}
+
+#add-asset .btn-warning{
+    width: 30%;
+    background: rgba(124, 6, 6, 0.322);
+    font-weight: 700;
+    /* margin-left: 15%; */
+    border: none;
+}
+#asset-request .btn-warning{
+    width: 30%;
+    background: rgba(124, 6, 6, 0.322);
+    font-weight: 700;
+    /* margin-left: 15%; */
+    border: none;
+}
+
+#asset-request  .btn-normal{
+    width: 60%;
+}
+#add-asset .btn-warning:hover, #asset-request .btn-warning:hover{
+    background: rgba(126, 2, 12, 0.849);
+    color: white;
+}
+
+/* labels */
+.text-muted{
+    font-size: 12pt;
+    color: rgb(99, 13, 13) !important;
+    display: inline;
+}
+
+#add-asset h3{
+    text-align: center;
+    padding: 10px;
+    font-weight: 700; 
+}
+
+.logo-header{
+    position: relative;
+}
+
+#assets{
+    margin-top: 5%;
+    display: none;
+    /* margin-left: 10px; */
+    margin-right: -25px;
+    height: 85vh;
+    overflow: scroll;
+}
+
+#assets .logo-header img{
+    margin-left: 100px;
+    padding: 10px;
+}
+#users{
+    margin-top: 5%;
+    display: none;
+}
+
+/* #asset-request img{
+    margin-bottom: 5%;
+    margin-left: 15%;
+} */
+#asset-request .btn-normal{
+    margin-left: 10%;
+}
+#modal-search-user{
+    width: 50%;
+    padding: 3%;
+    display: none;
+    position: fixed;
+    top: 12%;
+    left: 30%;
+    overflow: auto;
+    z-index: 1;
+    border-radius: 18px;
+    background: rgb(243, 243, 239);
+}
+#modal-add-user{
+    width: 55%;
+    padding: 2%;
+    display: none;
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    overflow: auto;
+    z-index: 1;
+    border-radius: 18px;
+    background: rgb(243, 243, 239);
+}
+#modal-add-user img{
+    margin-left: 7%;
+    padding-bottom: 3%;
+}
+.rmh-logo{
+    margin: 20px;
+    margin-left: 20%;
+}
+/* button */
+.btn-normal{
+    border: 1px solid;
+    width: 48%;
+    margin-left: 5px;
+    background: rgb(253, 253, 253);
+    color: black;
+    font-size: 14pt;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 3px;
+    outline: none !important;
+}
+.btn-normal:hover{
+    background: rgb(17, 75, 17);
+    color: white;
+}
+#modal-add-user .btn-normal{
+    margin-left: 25%;
+}
+.btn-link{
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: 11pt;
+    font-weight: 700;
+    color: cadetblue;
+    padding: 0;
+    margin: 0;
+}
+
+/* input box */
+.inp{
+    width: 90%;
+    padding-left: 40px;
+    margin-right: 20px;
+}
+.inp-md{
+    margin-right: 5px !important;
+}
+.inp{
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-bottom: 0.5px solid rgba(117, 156, 123, 0.7);
+    outline: none;
+    font-weight: 500;
+    font-size: 13pt;
+    flex: 3;
+    margin-right: 55px;
+}
+
+/* divs */
+.info{
+    margin-top: 21%;
+    margin-left: -30px;
+    border: 1px solid;
+    padding: 10px;
+    text-align: center;
+    background: rgb(46, 14, 46);
+}
+
+ .info h1{
+     font-size: 45pt;
+     text-align: center;
+     margin-top: 0;
+     color: rgb(8, 65, 92);
+ }
+
+ /* sigin  */
+.signin{
+    display: block;
+    width: 100%;
+    top: 130px;
+    height: 48vh;
+    /* text-align: right; */
+    margin-left: -30px;
+    position: absolute;
+    top: 130px;
+    border-radius: 10px;
+    padding-left: 35px;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.signin h1{
+    text-align: center;
+    color: rgb(8, 65, 92);
+    font-size: 24pt;
+}
+.signin .fas{
+    padding-top: 13px;
+    margin-right: 20px;
+    color: rgb(8, 65, 92);
+}
+.btn-signin{
+    width: 80%;
+    margin-left: 7%;
+    background: rgba(46, 14, 46, 0.1);
+    color: white;
+    outline: none !important;
+    font-weight: 700;
+    border-radius: 12px;
+    font-size: 14pt;
+
+}
+.btn-signin:hover{
+    background: rgba(46, 14, 46, 1);
+    color: white;
+}
+
+.iriho{
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: white;
+}
+#message{
+    padding: 10px;
+    font-weight: 700;
+}
+/* warnings */
+.warn{
+    background: rgb(218, 218, 148);
+}
+/* success */
+.success{
+    background: rgb(103, 207, 120);
+}
+.link-default h5{
+    display: inline;
+    font-size: 11pt;
+    font-weight: 700;
+    color: rgb(117, 117, 117);
+}
+.link-default{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.btn-link{
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: 11pt;
+    font-weight: 700;
+    color: cadetblue;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-signin{
+    width: 80%;
+    margin-right: 10%;
+    background: rgba(46, 14, 46, 0.8);
+    color: white;
+}
+
+
+/* user profile  */
+#profile{
+    display: none;
+    width: 100%;
+    margin-top: 0%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile-img{
+    margin-left: 7%;
+    margin-bottom: 90px;
+}
+.details{
+    margin-left: 10%;
+}
+.profile-img img{
+    /* width: 15%;
+    margin: auto;
+    margin-top: 0;
+    border-radius: 50%;
+    border: 1px solid;
+    margin-bottom: 10px; */
+}
+
+/* label */
+.lb{
+    margin-top: 15px;
+    display: block;
+    font-size: 14pt;
+    font-weight: 700;
+}
+.lb-default{
+    display: block;
+    width: 100%;
+    color: grey;
+}
+.lb-colored-title, .lb-colored-title-make, .lb-colored-title-user{
+    color: rgb(0, 201, 252);
+    font-weight: 700;
+    padding-left: 10px;
+    font-size: 14pt;
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+.lb-colored-title-make{
+    color: rgb(143, 252, 0); 
+}
+.lb-colored-title-user{
+    color: rgb(104, 17, 126); 
+}
+
+/* table */
+table{
+    width: 100%;
+}
+thead th{
+    background: rgba(6, 80, 99, 0.589);
+    text-transform: uppercase;
+    font-size: 12pt;
+}
+td{
+    color: rgb(4, 49, 43);
+}
+tbody tr:hover{
+    background: rgba(0, 0, 0, 0.4);
+    /* color: rgb(6, 87, 17); */
+    text-decoration: underline;    
+}
