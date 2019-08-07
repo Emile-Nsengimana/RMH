@@ -1,0 +1,81 @@
+.acquisition-details{
+    width: 80%;
+    margin: auto;
+    padding-top: 40px;
+    border: 1px solid;
+}
+.acquisition-details h5{
+    /* display: inline-block; */
+    /* margin-right: 20px; */
+    border: 1px solid;
+    font-size: 13pt;
+    font-weight: 700;
+    float: left;
+}
+.acquisition-details h4{
+    display: inline-block;
+    margin-right: 20px;
+    padding-top: 10px;
+    margin: 0px;
+}
+.acquisition-details p{
+    display: inline-block;
+    /* margin-right: 20px; */
+    padding: 3px;
+    margin: 0px;
+    font-size: 13pt;
+}
+.acquisition-details .form-group-report span{
+    float: right;
+}
+.format{
+    width: 70%;
+    margin: auto;
+}
+
+.form-group-report{
+    margin-top: 5%;
+    margin-bottom: 10%;
+
+}
+
+.span-date{
+    float: right;
+}
+#stamp-approve{
+    display: none;
+    margin-top: -300px;
+    margin-left: 50%;
+}
+
+#stamp-deny{
+    display: none;
+    margin-top: -300px;
+    margin-left: 50%;
+}
+
+#acquisition-report{
+    position: absolute;
+    top: 3%;
+    margin-left: 10%;
+    background: whitesmoke;
+    display: none;
+}
+
+.img-logo{
+    margin-top: 30px;
+    margin-left: 14%;
+    margin-bottom: 50px;
+}
+
+#print-req-report h2{
+    text-align: center;
+}
+
+textarea{
+    /* widows: 200px; */
+    /* height: 30%; */
+    border: none;
+    background: transparent;
+    /* overflow-x: scroll; */
+}

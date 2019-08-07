@@ -3,25 +3,27 @@ import {
   TabContent,
   TabPane,
   Nav,
-  NavItem,
-  NavLink,
   Card,
   CardHeader,
-  Badge,
   Row,
   Col
 } from "reactstrap";
-import classnames from "classnames";
-import UserProfile from '../Components/Profile';
 import Chart from 'chart.js';
-import { defaultGet, consume, remove } from './../API/consumeApi';
+import { defaultGet} from './../API/consumeApi';
 import moment from 'moment';
+import logoBrand from '../img/rmh-img.png';
+
 export default class Panels extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeTab: "1"
+      activeTab: "1",
+      pcs: 0,
+      printers: 0,
+      scanners: 0,
+      ups: 0,
+      others: 0
     };
   }
 
@@ -37,13 +39,7 @@ export default class Panels extends Component {
     const overallSummary = await defaultGet('/summary/all', sessionStorage.getItem("token"));
     if (overallSummary.ok) {
       const result = await overallSummary.json();
-      console.log(result);
-
-      var pc = result.workstations;
-      var printer = result.printer;
-      var scanners = result.scanner;
-      var ups = result.ups;
-      var others = result.others;
+      this.setState({pcs: result.workstations, printers: result.printer, scanners: result.scanner, ups: result.ups, others: result.others});
     }
     let ctx = document.getElementById('myChart1').getContext('2d');
     const myChart = new Chart(ctx, {
@@ -52,7 +48,7 @@ export default class Panels extends Component {
         labels: ['Workstation', 'Scanner', 'UPS', 'Printer', 'Others'],
         datasets: [{
           label: '# of assets',
-          data: [pc, scanners, ups, printer, others],
+          data: [this.state.pcs, this.state.scanners, this.state.ups, this.state.printers, this.state.others],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -103,12 +99,10 @@ export default class Panels extends Component {
           backgroundColor: [
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
-            // 'rgba(255, 99, 132, 0.2)',
           ],
           borderColor: [
             'rgba(54, 162, 235, 1)',
             'rgba(255, 206, 86, 1)',
-            // 'rgba(255, 99, 132, 1)',
           ],
           borderWidth: 1
         }]
@@ -147,12 +141,10 @@ export default class Panels extends Component {
           backgroundColor: [
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
-            // 'rgba(255, 99, 132, 0.2)',
           ],
           borderColor: [
             'rgba(54, 162, 235, 1)',
             'rgba(255, 206, 86, 1)',
-            // 'rgba(255, 99, 132, 1)',
           ],
           borderWidth: 1
         }]
@@ -189,19 +181,11 @@ export default class Panels extends Component {
           data: [inserviceAll, undermaintenanceAll],
           backgroundColor: [
             'rgba(19, 82, 82, 0.541)',
-            'rgba(54, 162, 235, 0.2)',
-            // 'rgba(255, 206, 86, 0.2)',
-            // 'rgba(75, 192, 192, 0.2)',
-            // 'rgba(153, 102, 255, 0.2)',
-            // 'rgba(255, 159, 64, 0.2)'
+            'rgba(54, 162, 235, 0.2)'
           ],
           borderColor: [
             'rgba(19, 82, 82, 1)',
-            'rgba(54, 162, 235, 1)',
-            // 'rgba(255, 206, 86, 1)',
-            // 'rgba(75, 192, 192, 1)',
-            // 'rgba(153, 102, 255, 1)',
-            // 'rgba(255, 159, 64, 1)'
+            'rgba(54, 162, 235, 1)'
           ],
           borderWidth: 1
         }]
@@ -229,51 +213,20 @@ export default class Panels extends Component {
     return (
       <React.Fragment>
         <div id="panel-content">
-          {/* <div className="search">
-          <InputGroup className="txt-lg">
-            <label className="lb-default">SEARCH</label>
-            <Input />
-            <InputGroupAddon addonType="append">
-              <Button color="secondary">Search</Button>
-            </InputGroupAddon>
-          </InputGroup>
-        </div> */}
-
-
-          {/* panels */}
           <div id="panels" className="nav-default">
-            <Nav tabs>
-              <NavItem>
-                <NavLink
-                  className={classnames({ active: this.state.activeTab === "1" })}
-                  onClick={() => {
-                    this.toggle("1");
-                  }}
-                >
-                  Dashboard
-            </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  className={classnames({ active: this.state.activeTab === "2" })}
-                  onClick={() => {
-                    this.toggle("2");
-                  }}
-                >
-                  Inservice
-            </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  className={classnames({ active: this.state.activeTab === "3" })}
-                  onClick={() => {
-                    this.toggle("3");
-                  }}
-                >
-                  Under-maintenance
-            </NavLink>
-              </NavItem>
-            </Nav>
+          <div id='hide-in-report' className="form-group-last">
+                <div className="logo-header">
+                  <img src={logoBrand} alt=' RMH ' width="800px" />
+                </div>
+                <h1>Asset summary report</h1>
+                <br></br>
+
+                <label>Workstations: </label><input className="summary" defaultValue={this.state.pcs}></input><br></br>
+                <label>Scanner: </label><input className="summary" defaultValue={this.state.scanners}></input><br></br>
+                <label>UPS: </label><input className="summary" defaultValue={this.state.ups}></input><br></br>
+                <label>Printer: </label><input className="summary" defaultValue={this.state.printers}></input><br></br>
+                <label>Others: </label><input className="summary" defaultValue={this.state.others}></input>
+              </div>
             <TabContent activeTab={this.state.activeTab}>
 
               {/* ---------------------------------------------------- TAB 1 -------------------------------------------------------- */}
@@ -284,111 +237,39 @@ export default class Panels extends Component {
                   <Col sm="6">
                     <Card body style={{ margin: "10px 10px 10px 0" }}>
                       <CardHeader>Summary</CardHeader>
-                      <canvas id="myChart1" width="400"></canvas>
+                      <canvas id="myChart1" width="400" height="250"></canvas>
                     </Card>
                   </Col>
                   {/* column 2 */}
                   <Col sm="6">
                     <Card body style={{ margin: "10px 10px 10px 0" }}>
                       <CardHeader>Workstations</CardHeader>
-                      <canvas id="myChart2" width="400"></canvas>
+                      <canvas id="myChart2" width="400" height="250"></canvas>
                     </Card>
                   </Col>
                   {/* column 3 */}
                   <Col sm="6">
                     <Card body style={{ margin: "10px 10px 10px 0" }}>
                       <CardHeader>Scanner</CardHeader>
-                      <canvas id="myChart3" width="400"></canvas>
+                      <canvas id="myChart3" width="400" height="250"></canvas>
                     </Card>
                   </Col>
                   {/* column 4 */}
                   <Col sm="6">
                     <Card body style={{ margin: "10px 10px 10px 0" }}>
                       <CardHeader>Asset state</CardHeader>
-                      <canvas id="myChart4" width="400"></canvas>
+                      <canvas id="myChart4" width="400" height="250"></canvas>
                     </Card>
                   </Col>
                 </Row>
               </TabPane>
-
-              {/* ---------------------------------------------------- TAB 2 -------------------------------------------------------- */}
-
-              <TabPane tabId="2">
-                <div className="asset-title">
-                  <h4>IN-SERVICE ASSETS</h4>
-                </div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Serial No.</th>
-                      <th>Name</th>
-                      <th>category</th>
-                      <th>Department</th>
-                      <th>Status</th>
-                      <th>Building</th>
-                      <th>Service date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {this.props.inservice.map(asset => (
-                      <tr key={asset.serialNo}>
-                        <td>{asset.serialNo}</td>
-                        <td>{asset.name}</td>
-                        <td>{asset.category}</td>
-                        <td>{asset.department}</td>
-                        <td>{asset.status}</td>
-                        <td>{asset.building}</td>
-                        <td>{moment(asset.createdAt).format('DD-MM-YYYY HH:mm')}</td>
-                      </tr>))}
-                  </tbody>
-                </table>
-                <h5>Total: <Badge href="#" color="secondary">{this.props.inservice.length}</Badge></h5>
-              </TabPane>
-
-              {/* ---------------------------------------------------- TAB 3 -------------------------------------------------------- */}
-
-              <TabPane tabId="3">
-                <div className="asset-title">
-                  <h4>UNDER-MAINTENANCE ASSETS</h4>
-                </div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Serial No.</th>
-                      <th>Name</th>
-                      <th>category</th>
-                      <th>Department</th>
-                      <th>Status</th>
-                      <th>Building</th>
-                      <th>Service date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {this.props.undermaintenance.map(asset => (
-                      <tr key={asset.serialNo}>
-                        <td>{asset.serialNo}</td>
-                        <td>{asset.name}</td>
-                        <td>{asset.category}</td>
-                        <td>{asset.department}</td>
-                        <td>{asset.status}</td>
-                        <td>{asset.building}</td>
-                        <td>{moment(asset.createdAt).format('DD-MM-YYYY HH:mm')}</td>
-                      </tr>))}
-                  </tbody>
-                </table>
-                <h5>Total: <Badge href="#" color="secondary">{this.props.undermaintenance.length}</Badge></h5>
-              </TabPane>
             </TabContent>
+            <div id='hide-in-report-2' className="print">
+                  <label className="printed">Printed on: </label><label className="printed-value">{moment.utc().format('DD-MM-YYYY')}</label><br />
+                  <label className="printed">Printed by: </label><label className="printed-value">{sessionStorage.getItem('lastName')} {sessionStorage.getItem('firstName')}</label>
+                </div>
           </div>
         </div>
-        {/* <div id="profile">
-                <UserProfile />
-        </div>
-        <div id="notes">
-
-        </div> */}
-
-
       </React.Fragment>
     );
   }

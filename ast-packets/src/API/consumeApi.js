@@ -18,6 +18,7 @@ const consume = async (url, meth, bd, token) => {
     return 'connection refused or server down';
   }
 };
+
 const remove = async (url, meth, token) => {
   const request = new Request(baseUrl + url, {
     method: meth,
@@ -32,7 +33,6 @@ const remove = async (url, meth, token) => {
     const response = await fetch(request);
     return response;
   } catch (error) {
-    console.log(error);
     return 'connection refused or server down';
   }
 };

@@ -13,28 +13,36 @@ class Login extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     async handleLogin() {
-        try {
+        // try {
             const credentials = {
                 email: document.getElementById('txt-email').value,
                 password: document.getElementById('txt-password').value,
             }
-            const login = await consume('/auth/signin/', 'post', credentials);
-            const loginInfo = await login.json();
-            if (loginInfo.status === 200) {
+            const login = await consume('/auth/signin/', 'post', credentials);    
+            if (login.ok) {
+                const loginInfo = await login.json();
+                console.log(loginInfo);
                 sessionStorage.setItem("token", loginInfo.data.token);
-            }
-            console.log(loginInfo);
-        } catch (error) {
-            console.log(error);
-        }
+                sessionStorage.setItem("firstName", loginInfo.data.user.firstName);
+                sessionStorage.setItem("lastName", loginInfo.data.user.lastName);
+                if(loginInfo.data.user.type === 'admin') window.location.href = 'http://localhost:3000/admin';  
+                if(loginInfo.data.user.type === 'manager') window.location.href = 'http://localhost:3000/manager';  
+                if(loginInfo.data.user.type === 'normal') window.location.href = 'http://localhost:3000/user';  
+           }
+           const loginInfo = await login.json();
+           console.log(loginInfo.error);
+
+        // } catch (error) {
+            // console.log(error);
+        // }
     }
 
     handleChange(email, password) {
-        console.log(email);
+        // console.log(email);
     }
 
     handleSubmit() {
-        console.log(this.state);
+        // console.log(this.state);
     }
     render() {
         return (

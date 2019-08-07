@@ -4,7 +4,7 @@ import Admin from './Admin';
 import Login from './Login';
 import User from './User';
 import Manager from './Manager';
-
+import Example from './Components/Print';
 function App (){
     return (
         <Router>
@@ -12,6 +12,7 @@ function App (){
             <Route path='/admin' component={Admin} />
             <Route path='/user' component={User} />
             <Route path='/manager' component={Manager} />
+            <Route path='/print' component={Example} />
         </Router>
     );
 }

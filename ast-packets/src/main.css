@@ -81,7 +81,8 @@ h5{
     margin-left: -70px;
 }
 .user-panel{
-    margin-left: 270px;
+    padding-top: -70px;
+    margin-left: 300px;
 }
 
 /* workspace */
@@ -107,6 +108,11 @@ h5{
     background: whitesmoke;
     padding: 7px;
 }
+#add-asset{
+    position: absolute;
+    top: 30px !important;
+    height: 78vh !important;
+}
 #add-asset, #asset-request{
     width: 55%;
     height: 98vh;
@@ -122,16 +128,21 @@ h5{
     background: whitesmoke;
     display: none;
 }
-
+#asset-request{
+    height: 93vh;
+}
 #add-asset .btn-normal{
     width: 60%;
     /* background: rgb(14, 94, 67);
     font-weight: 700; */
     margin-left: 10%;
 }
-
-#add-asset .btn-warning{
-    width: 30%;
+#modal-add-user .btn-normal{
+    width: 50% !important;
+    /* margin-left: 14; */
+}
+#add-asset .btn-warning, #modal-add-user .btn-warning{
+    width: 25%;
     background: rgba(124, 6, 6, 0.322);
     font-weight: 700;
     /* margin-left: 15%; */
@@ -148,7 +159,7 @@ h5{
 #asset-request  .btn-normal{
     width: 60%;
 }
-#add-asset .btn-warning:hover, #asset-request .btn-warning:hover{
+#add-asset .btn-warning:hover, #asset-request .btn-warning:hover, #modal-add-user .btn-warning:hover{
     background: rgba(126, 2, 12, 0.849);
     color: white;
 }
@@ -168,19 +179,24 @@ h5{
 
 .logo-header{
     position: relative;
+    /* margin-left: -70px; */
 }
 
-#assets{
-    margin-top: 5%;
+#assets, #acquisition{
+    /* margin-top: 1%; */
     display: none;
     /* margin-left: 10px; */
     margin-right: -25px;
     height: 85vh;
     overflow: scroll;
 }
+#acquisition .logo-header img{
+    margin-left: 170px;
+    padding: 10px;
+}
 
 #assets .logo-header img{
-    margin-left: 100px;
+    margin-left: 170px;
     padding: 10px;
 }
 #users{
@@ -209,10 +225,11 @@ h5{
 }
 #modal-add-user{
     width: 55%;
+    height: 95vh !important;
     padding: 2%;
     display: none;
     position: absolute;
-    top: 5%;
+    top: 1%;
     left: 20%;
     overflow: auto;
     z-index: 1;
@@ -220,7 +237,7 @@ h5{
     background: rgb(243, 243, 239);
 }
 #modal-add-user img{
-    margin-left: 7%;
+    margin-left: 13%;
     padding-bottom: 3%;
 }
 .rmh-logo{
@@ -259,6 +276,12 @@ h5{
     margin: 0;
 }
 
+#users .btn-normal{
+    width: 17%;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    float: right;
+}
 /* input box */
 .inp{
     width: 90%;
@@ -445,11 +468,163 @@ thead th{
     text-transform: uppercase;
     font-size: 12pt;
 }
-td{
-    color: rgb(4, 49, 43);
+
+#panel-content td{
+    font-size: 12pt;
 }
+td{
+    padding: 8px;
+    color: rgb(4, 49, 43);
+    border-bottom: 0.4px solid rgba(15, 50, 90, 0.2);
+}
+
+/* 
+td:nth-last-child(1){
+    border: 1px solid red !important;
+} */
+
 tbody tr:hover{
-    background: rgba(0, 0, 0, 0.4);
-    /* color: rgb(6, 87, 17); */
-    text-decoration: underline;    
+    background: rgba(0, 0, 0, 0.3);
+    text-decoration: underline;
+}
+
+.form-group {
+    padding: -7px;
+}
+
+#view-acquisition-model input{
+    /* text-align: center; */
+}
+#view-acquisition-model .form-group{
+    /* margin-top: 50px;
+    margin-left: 30px;
+    align-content: center; */
+    text-align: left;
+    font-weight: 700;
+}
+#view-acquisition-model{
+    display: none;
+    /* margin-left: 10px; */
+    margin-left: 35%;
+    height: 90vh;
+    overflow: scroll;
+
+    /* width: 70%; */
+    /* height: 80vh; */
+    overflow: scroll;
+    position: absolute;
+    top: 5%;
+    /* left: 5%; */
+    z-index: 1;
+    /* border-radius: 12px; */
+    /* margin-left: 20%;   */
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 40px;
+    background: whitesmoke;
+    text-align: center;
+}
+#view-acquisition-model img{
+    margin-right: 50px;
+}   
+.summary{
+    border: none;
+    /* margin-right: 30px; */
+    width: initial;
+
+}
+
+#dashboard .logo-header{
+    margin-top: 30px;
+    margin-left: 130px;
+}
+#dashboard{
+    /* width: 65%; */
+    /* height: 80vh; */
+    /* display: inline-block; */
+    margin-left: 50px;
+}
+
+.form-group-last{
+    /* border: 1px solid; */
+/* float: right;
+width: 30%;
+margin-top: 30%; */
+
+    /* margin-left: 120px; */
+    display: inline;
+}
+
+.form-group-last label{
+    font-weight: 700;
+}
+
+#dashboard h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#view-acquisition-model img{
+    margin-left: 120px;
+}
+#view-acquisition-model .form-group label{
+    /* text-align: left !important; */
+}
+
+.printed{
+    font-weight: 700;
+}
+
+.printed-value{
+    margin-left: 10px;
+}
+
+.print{
+    float: right;
+    margin-right: 50px;
+}
+
+
+
+/* --------------------------------- */
+#reports{
+    /* display: none; */
+}
+
+#hide-in-report, #hide-in-report-2{
+    display: none;
+    /* width: 100px;
+    height: 100px; */
+    /* background: red; */
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
+}
+#hide-in-report:hover, #hide-in-report-2:hover{
+    /* opacity: 0.1; */
+}
+.hid-it{
+    
+}
+.hid-it:hover{
+    /* display: none; */
+}
+
+.btn-print{
+    margin-bottom: 10px;
+    margin-right: 10px;
+    float: right;
+    border-radius: 12px;
+    /* padding: 7px; */
+    /* width: 70px; */
+    /* font-weight: 300; */
+    font-style: italic;
+    outline: none;
+}
+.btn-print:hover{
+    background: rgba(1, 32, 1, 0.322);
+    color: white;
+}
+
+#reject{
+    display: none;
 }

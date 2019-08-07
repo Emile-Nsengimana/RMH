@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './main.css';
+import './report.css';
 
 import * as serviceWorker from './serviceWorker';
 

@@ -6,7 +6,7 @@ class Logo extends Component{
 render(){
     return (
         <div className="navbar logo">
-            <img src={appLogo} alt="app logo" width="170px"></img>
+            <img src={appLogo} alt="app logo" width="200px"></img>
         </div>
     );
 }

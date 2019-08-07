@@ -1,0 +1,39 @@
+{
+  "name": "rmh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node ./app",
+    "drop_tables": "sequelize db:migrate:undo:all",
+    "create_tables": "sequelize db:migrate"
+  },
+  "author": "Emile Nsengimana",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^15.1.0",
+    "@sendgrid/mail": "^6.4.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1",
+    "joi-password-complexity": "^2.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.12.0",
+    "pg-hstore": "^2.3.3",
+    "sendgrid": "^5.2.3",
+    "sequelize": "^5.10.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "nodemon": "^1.19.1"
+  }
+}
